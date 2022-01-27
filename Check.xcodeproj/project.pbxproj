@@ -14,6 +14,8 @@
 		9F617DC3278796350033AFC0 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F617DC2278796350033AFC0 /* CalendarView.swift */; };
 		9F617DC5278796610033AFC0 /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F617DC4278796610033AFC0 /* NotesView.swift */; };
 		9F617DC7278796860033AFC0 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F617DC6278796860033AFC0 /* TimerView.swift */; };
+		9F7A0EBC27A2584B00FFEB0B /* DatePickerCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7A0EBB27A2584B00FFEB0B /* DatePickerCustom.swift */; };
+		9F7A0EC227A2650F00FFEB0B /* DateObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7A0EC127A2650F00FFEB0B /* DateObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,9 +24,11 @@
 		9F617DB227878C280033AFC0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9F617DB427878C290033AFC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9F617DB727878C290033AFC0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		9F617DC2278796350033AFC0 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = SOURCE_ROOT; };
+		9F617DC2278796350033AFC0 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarView.swift; path = Check/View/CalendarView.swift; sourceTree = SOURCE_ROOT; };
 		9F617DC4278796610033AFC0 /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
 		9F617DC6278796860033AFC0 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		9F7A0EBB27A2584B00FFEB0B /* DatePickerCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerCustom.swift; sourceTree = "<group>"; };
+		9F7A0EC127A2650F00FFEB0B /* DateObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +45,7 @@
 		9F617DA427878C280033AFC0 = {
 			isa = PBXGroup;
 			children = (
+				9F7A0EBB27A2584B00FFEB0B /* DatePickerCustom.swift */,
 				9F617DAF27878C280033AFC0 /* Check */,
 				9F617DAE27878C280033AFC0 /* Products */,
 			);
@@ -57,11 +62,10 @@
 		9F617DAF27878C280033AFC0 /* Check */ = {
 			isa = PBXGroup;
 			children = (
+				9F7A0EBE27A25A1B00FFEB0B /* View */,
+				9F7A0EBD27A25A1200FFEB0B /* Model */,
 				9F617DB027878C280033AFC0 /* CheckApp.swift */,
 				9F617DB227878C280033AFC0 /* ContentView.swift */,
-				9F617DC4278796610033AFC0 /* NotesView.swift */,
-				9F617DC6278796860033AFC0 /* TimerView.swift */,
-				9F617DC2278796350033AFC0 /* CalendarView.swift */,
 				9F617DB427878C290033AFC0 /* Assets.xcassets */,
 				9F617DB627878C290033AFC0 /* Preview Content */,
 			);
@@ -74,6 +78,24 @@
 				9F617DB727878C290033AFC0 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		9F7A0EBD27A25A1200FFEB0B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9F7A0EC127A2650F00FFEB0B /* DateObject.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9F7A0EBE27A25A1B00FFEB0B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9F617DC6278796860033AFC0 /* TimerView.swift */,
+				9F617DC2278796350033AFC0 /* CalendarView.swift */,
+				9F617DC4278796610033AFC0 /* NotesView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,7 +170,9 @@
 			files = (
 				9F617DC7278796860033AFC0 /* TimerView.swift in Sources */,
 				9F617DB327878C280033AFC0 /* ContentView.swift in Sources */,
+				9F7A0EBC27A2584B00FFEB0B /* DatePickerCustom.swift in Sources */,
 				9F617DC5278796610033AFC0 /* NotesView.swift in Sources */,
+				9F7A0EC227A2650F00FFEB0B /* DateObject.swift in Sources */,
 				9F617DC3278796350033AFC0 /* CalendarView.swift in Sources */,
 				9F617DB127878C280033AFC0 /* CheckApp.swift in Sources */,
 			);

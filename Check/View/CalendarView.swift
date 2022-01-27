@@ -8,12 +8,17 @@
 import SwiftUI
 
 struct CalendarView: View {
+    
+    @State var currentDate:  Date = Date()
+    
     var body: some View {
         Color(0x070707).overlay(
-            VStack(spacing:20){
-                Text("Calendar View").foregroundColor(.white)
-                Image(systemName: "calendar").resizable().frame(width: 60, height: 60, alignment: .center)
-                    .foregroundColor(.white)
+            ScrollView(.vertical, showsIndicators: false){
+                VStack(spacing:20){
+                    
+                    //Date Picker Custom View
+                    DatePickerCustom(currentDate: $currentDate)
+                }
             }
         ).edgesIgnoringSafeArea(.vertical)
     }
