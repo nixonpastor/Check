@@ -24,7 +24,7 @@ struct DatePickerCustom: View {
             HStack(spacing: 20){
                 VStack(alignment: .leading, spacing: 10){
                     Text(getYearAndMonth()[0])
-                        .font(.caption)
+//                        .font(.caption)
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
                     
@@ -52,6 +52,19 @@ struct DatePickerCustom: View {
                     Image(systemName: "chevron.right")
                         .font(.title2)
                 }
+                
+                Button{
+                    
+                } label:{
+                    Image(systemName: "plus")
+                        .font(.title)
+                        .foregroundColor(.green)
+                        .padding(5)
+                        .clipShape(Circle())
+                                    .shadow(radius: 10)
+                                    .overlay(Circle().stroke(Color.green, lineWidth: 2))
+                }
+                
             }.padding(.horizontal)
             
             //View for Row of Days
@@ -93,6 +106,8 @@ struct DatePickerCustom: View {
                                                 .font(.title3.bold())
             }
         }
+        .padding(.vertical, 8)
+        .frame(height: 60, alignment: .top)
     }
     
     //get year and month to display
