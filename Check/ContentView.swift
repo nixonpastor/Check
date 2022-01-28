@@ -17,6 +17,11 @@ struct ContentView: View {
     
     init(){
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.orange]
+                
+        UINavigationBar.appearance().isTranslucent = false
+
+        UINavigationBar.appearance().backgroundColor = UIColor(Color(0x070707))
+        
         
         UITabBar.appearance().unselectedItemTintColor = UIColor.white
         
@@ -27,6 +32,7 @@ struct ContentView: View {
     @State var selectedTab: Tabs = .calendar
     
     var body: some View {
+        ZStack{
         NavigationView{
             TabView(selection: $selectedTab) {
                 NotesView().tabItem{
@@ -38,10 +44,12 @@ struct ContentView: View {
                 TimerView().tabItem{
                     Label("Timer", systemImage: "timer")
                 }.tag(Tabs.timer)
-            }.navigationTitle(selectedTab.rawValue.capitalized)
-            .accentColor(Color(0x26C598))
+            }
+            .navigationTitle(selectedTab.rawValue.capitalized).accentColor(Color(0x26C598))
             
         }
+        }.preferredColorScheme(.dark)
+        
     }
 }
 

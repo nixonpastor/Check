@@ -85,29 +85,113 @@ struct DatePickerCustom: View {
                 ForEach(getDates()){
                     value in
                     CardView(value: value)
+                        .background(Capsule()
+                                        .fill(Color(.red))
+                                        .padding(.horizontal, 8)
+                                        .opacity(isSameDay(date1:
+                                                            value.date, date2:
+                                                            currentDate) ? 1 : 0))
+                        .onTapGesture {
+                            currentDate = value.date
+                        }
+                
                 }
+                
+                
             }.onChange(of: currentMonth){
                 newValue in
                 
                 //update month
                 currentDate = getCurrentMonth()
             }
-            
-        }.padding(.top, 150)
+            VStack(spacing: 15){
+                Text("Reminders")
+                    .font(.title2.bold())
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.vertical, 10)
+                
+                if let task = tasks.first(where: {
+                    task in
+                    
+                    return isSameDay(date1: task.taskDate, date2: currentDate)
+                }){
+                    ForEach(task.task){
+                        task in
+                        VStack(alignment: .leading, spacing: 10){
+                            //display reminders
+                            //TBD CUSTOM TIME
+                            Text(task.time.addingTimeInterval(CGFloat.random(in: 0...5000)), style: .time)
+                                .foregroundColor(.white)
+                            Text(task.title)
+                                .font(.title2.bold())
+                                .foregroundColor(.white)
+                            
+                        }
+                        .padding(.vertical, 10)
+                        .padding(.horizontal)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .background(
+                            Color(.red)
+                                .opacity(0.5)
+                                .cornerRadius(10)
+                        )
+                    }
+                }
+                else{
+                    Text("No Reminders For Today")
+                        .foregroundColor(.white)
+                }
+            }
+            .padding()
+
+        }.padding(.top, 0)
+            .padding(.bottom, 90)
     }
     
+    //Display individual day
     @ViewBuilder
     func CardView(value: DateObject)-> some View{
 
         VStack{
             if value.day != -1{
-                                            Text("\(value.day)")
-                                                .foregroundColor(.white)
-                                                .font(.title3.bold())
+                if let task = tasks.first(where: {
+                    task in
+                    
+                    return isSameDay(date1: task.taskDate, date2: value.date)
+                }){
+                    Text("\(value.day)")
+                    //change color based on selected dates
+                        .foregroundColor(isSameDay(date1: task.taskDate, date2: currentDate) ? .white : .red)
+                        .font(.title3.bold())
+                        .frame(maxWidth: .infinity)
+                    
+                    
+                    Spacer()
+                    
+                    Circle()
+                        .fill(isSameDay(date1: task.taskDate, date2: currentDate) ? .white : .red)
+                        .frame(width: 8, height: 8)
+                        
+                }
+                else{
+                    Text("\(value.day)")
+                        .foregroundColor(.white)
+                        .font(.title3.bold())
+                        .frame(maxWidth: .infinity)
+                    Spacer()
+                }
             }
         }
-        .padding(.vertical, 8)
+        .padding(.vertical, 9)
         .frame(height: 60, alignment: .top)
+    }
+    
+    //check dates
+    func isSameDay(date1: Date, date2: Date)->Bool{
+        let calendar = Calendar.current
+        
+        return calendar.isDate(date1, inSameDayAs: date2)
     }
     
     //get year and month to display

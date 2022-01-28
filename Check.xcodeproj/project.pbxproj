@@ -16,7 +16,7 @@
 		9F617DC7278796860033AFC0 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F617DC6278796860033AFC0 /* TimerView.swift */; };
 		9F7A0EBC27A2584B00FFEB0B /* DatePickerCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7A0EBB27A2584B00FFEB0B /* DatePickerCustom.swift */; };
 		9F7A0EC227A2650F00FFEB0B /* DateObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7A0EC127A2650F00FFEB0B /* DateObject.swift */; };
-		9F8A85E227A3833F003BC67D /* Reminders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8A85E127A3833F003BC67D /* Reminders.swift */; };
+		9F8A85E427A3A52E003BC67D /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8A85E327A3A52E003BC67D /* Task.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +30,7 @@
 		9F617DC6278796860033AFC0 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		9F7A0EBB27A2584B00FFEB0B /* DatePickerCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerCustom.swift; sourceTree = "<group>"; };
 		9F7A0EC127A2650F00FFEB0B /* DateObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateObject.swift; sourceTree = "<group>"; };
-		9F8A85E127A3833F003BC67D /* Reminders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminders.swift; sourceTree = "<group>"; };
+		9F8A85E327A3A52E003BC67D /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,7 +47,6 @@
 		9F617DA427878C280033AFC0 = {
 			isa = PBXGroup;
 			children = (
-				9F7A0EBB27A2584B00FFEB0B /* DatePickerCustom.swift */,
 				9F617DAF27878C280033AFC0 /* Check */,
 				9F617DAE27878C280033AFC0 /* Products */,
 			);
@@ -86,7 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				9F7A0EC127A2650F00FFEB0B /* DateObject.swift */,
-				9F8A85E127A3833F003BC67D /* Reminders.swift */,
+				9F8A85E327A3A52E003BC67D /* Task.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -94,6 +93,7 @@
 		9F7A0EBE27A25A1B00FFEB0B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9F7A0EBB27A2584B00FFEB0B /* DatePickerCustom.swift */,
 				9F617DC6278796860033AFC0 /* TimerView.swift */,
 				9F617DC2278796350033AFC0 /* CalendarView.swift */,
 				9F617DC4278796610033AFC0 /* NotesView.swift */,
@@ -174,10 +174,10 @@
 				9F617DC7278796860033AFC0 /* TimerView.swift in Sources */,
 				9F617DB327878C280033AFC0 /* ContentView.swift in Sources */,
 				9F7A0EBC27A2584B00FFEB0B /* DatePickerCustom.swift in Sources */,
-				9F8A85E227A3833F003BC67D /* Reminders.swift in Sources */,
 				9F617DC5278796610033AFC0 /* NotesView.swift in Sources */,
 				9F7A0EC227A2650F00FFEB0B /* DateObject.swift in Sources */,
 				9F617DC3278796350033AFC0 /* CalendarView.swift in Sources */,
+				9F8A85E427A3A52E003BC67D /* Task.swift in Sources */,
 				9F617DB127878C280033AFC0 /* CheckApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

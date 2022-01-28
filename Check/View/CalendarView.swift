@@ -12,6 +12,7 @@ struct CalendarView: View {
     @State var currentDate:  Date = Date()
     
     var body: some View {
+        
         Color(0x070707).overlay(
             ScrollView(.vertical, showsIndicators: false){
                 VStack(spacing:20){
@@ -19,8 +20,11 @@ struct CalendarView: View {
                     //Date Picker Custom View
                     DatePickerCustom(currentDate: $currentDate)
                 }
+                .padding(.vertical)
+                
             }
-        ).edgesIgnoringSafeArea(.vertical)
+        )
+            .edgesIgnoringSafeArea(.vertical)
     }
 }
 
