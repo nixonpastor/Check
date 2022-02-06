@@ -86,7 +86,7 @@ struct DatePickerCustom: View {
                     value in
                     CardView(value: value)
                         .background(Capsule()
-                                        .fill(Color(.red))
+                                        .fill(Color(UIColor.orange))
                                         .padding(.horizontal, 8)
                                         .opacity(isSameDay(date1:
                                                             value.date, date2:
@@ -132,7 +132,7 @@ struct DatePickerCustom: View {
                         .padding(.horizontal)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .background(
-                            Color(.red)
+                            Color(UIColor.orange)
                                 .opacity(0.5)
                                 .cornerRadius(10)
                         )
@@ -162,7 +162,7 @@ struct DatePickerCustom: View {
                 }){
                     Text("\(value.day)")
                     //change color based on selected dates
-                        .foregroundColor(isSameDay(date1: task.taskDate, date2: currentDate) ? .white : .red)
+                        .foregroundColor(isSameDay(date1: task.taskDate, date2: currentDate) ? .white : Color(UIColor.orange))
                         .font(.title3.bold())
                         .frame(maxWidth: .infinity)
                     
@@ -170,7 +170,7 @@ struct DatePickerCustom: View {
                     Spacer()
                     
                     Circle()
-                        .fill(isSameDay(date1: task.taskDate, date2: currentDate) ? .white : .red)
+                        .fill(isSameDay(date1: task.taskDate, date2: currentDate) ? .white : Color(UIColor.orange))
                         .frame(width: 8, height: 8)
                         
                 }
