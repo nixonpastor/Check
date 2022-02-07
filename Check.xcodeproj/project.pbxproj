@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F4CCDED27B0A91500314945 /* ListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4CCDEC27B0A91400314945 /* ListRowView.swift */; };
+		9F4CCDEF27B0B32C00314945 /* AddNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4CCDEE27B0B32C00314945 /* AddNoteView.swift */; };
 		9F617DB127878C280033AFC0 /* CheckApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F617DB027878C280033AFC0 /* CheckApp.swift */; };
 		9F617DB327878C280033AFC0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F617DB227878C280033AFC0 /* ContentView.swift */; };
 		9F617DB527878C290033AFC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F617DB427878C290033AFC0 /* Assets.xcassets */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9F4CCDEC27B0A91400314945 /* ListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowView.swift; sourceTree = "<group>"; };
+		9F4CCDEE27B0B32C00314945 /* AddNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteView.swift; sourceTree = "<group>"; };
 		9F617DAD27878C280033AFC0 /* Check.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Check.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F617DB027878C280033AFC0 /* CheckApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckApp.swift; sourceTree = "<group>"; };
 		9F617DB227878C280033AFC0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -97,6 +101,8 @@
 				9F617DC6278796860033AFC0 /* TimerView.swift */,
 				9F617DC2278796350033AFC0 /* CalendarView.swift */,
 				9F617DC4278796610033AFC0 /* NotesView.swift */,
+				9F4CCDEC27B0A91400314945 /* ListRowView.swift */,
+				9F4CCDEE27B0B32C00314945 /* AddNoteView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -175,10 +181,12 @@
 				9F617DB327878C280033AFC0 /* ContentView.swift in Sources */,
 				9F7A0EBC27A2584B00FFEB0B /* DatePickerCustom.swift in Sources */,
 				9F617DC5278796610033AFC0 /* NotesView.swift in Sources */,
+				9F4CCDEF27B0B32C00314945 /* AddNoteView.swift in Sources */,
 				9F7A0EC227A2650F00FFEB0B /* DateObject.swift in Sources */,
 				9F617DC3278796350033AFC0 /* CalendarView.swift in Sources */,
 				9F8A85E427A3A52E003BC67D /* Task.swift in Sources */,
 				9F617DB127878C280033AFC0 /* CheckApp.swift in Sources */,
+				9F4CCDED27B0A91500314945 /* ListRowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

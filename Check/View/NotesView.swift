@@ -8,13 +8,32 @@
 import SwiftUI
 
 struct NotesView: View {
+
+    @State var items: [String] = [
+    "First Test Note",
+    "Second Test Note",
+    "Third Test Note"
+    ]
+    
     var body: some View {
+        
         Color(0x070707).overlay(
             VStack{
-                Text("Notes View").foregroundColor(.white)
-                Image(systemName: "note").resizable().frame(width: 60, height: 60, alignment: .center)
-                    .foregroundColor(.white)
+                HStack{
+                    EditButton().padding().foregroundColor(.white)
+                    Spacer()
+                    NavigationLink("Add", destination: AddNoteView()).foregroundColor(Color.green).padding()
+                }.padding(.top, 10 )
+                    .padding(.bottom, -30)
+                //Looping through each note
+                List{
+                    ForEach(items, id: \.self ) {
+                        item in
+                        ListRowView(title: item)
+                    }
+                }.padding(.top, 10)
             }).edgesIgnoringSafeArea(.vertical)
+            .padding(.top, 2)
     }
 }
 
@@ -36,3 +55,5 @@ extension Color {
     )
   }
 }
+
+

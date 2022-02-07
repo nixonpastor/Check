@@ -29,7 +29,7 @@ struct ContentView: View {
 
     }
     
-    @State var selectedTab: Tabs = .calendar
+    @State var selectedTab: Tabs = .notes
     
     var body: some View {
         ZStack{

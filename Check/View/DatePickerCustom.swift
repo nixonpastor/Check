@@ -133,7 +133,7 @@ struct DatePickerCustom: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .background(
                             Color(UIColor.orange)
-                                .opacity(0.5)
+                                .opacity(0.9)
                                 .cornerRadius(10)
                         )
                     }
