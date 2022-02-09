@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct CheckApp: App {
+    
+    @State var listViewModel: ListViewModel = ListViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView{
+                ContentView()
+            }.environmentObject(listViewModel)
+                .padding(.top, -150)
         }
     }
 }

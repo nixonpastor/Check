@@ -9,11 +9,8 @@ import SwiftUI
 
 struct NotesView: View {
 
-    @State var items: [String] = [
-    "First Test Note",
-    "Second Test Note",
-    "Third Test Note"
-    ]
+    @EnvironmentObject var listViewModel: ListViewModel
+    
     
     var body: some View {
         
@@ -27,10 +24,12 @@ struct NotesView: View {
                     .padding(.bottom, -30)
                 //Looping through each note
                 List{
-                    ForEach(items, id: \.self ) {
+                    ForEach(listViewModel.notes ) {
                         item in
-                        ListRowView(title: item)
+                        ListRowView(note: item)
                     }
+                    .onDelete(perform: listViewModel.deleteNote)
+                    .onMove(perform: listViewModel.moveNote)
                 }.padding(.top, 10)
             }).edgesIgnoringSafeArea(.vertical)
             .padding(.top, 2)
@@ -39,7 +38,9 @@ struct NotesView: View {
 
 struct NotesView_Previews: PreviewProvider {
     static var previews: some View {
-        NotesView()
+        NavigationView{
+            NotesView()
+        }.environmentObject(ListViewModel())
     }
 }
 

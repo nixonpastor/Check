@@ -9,19 +9,28 @@ import SwiftUI
 
 struct ListRowView: View {
     
-    let title: String
+    let note: NoteModel
+    
     var body: some View {
         HStack{
-            Image(systemName: "checkmark.circle")
-            Text(title)
+            Image(systemName: note.isCompleted ? "checkmark.circle" : "circle").foregroundColor(note.isCompleted ? .green : .red)
+            Text(note.title)
             Spacer()
         }
-//        .padding()
+        .font(.title2)
+        .padding(.vertical, 8)
     }
 }
 
 struct ListRowView_Previews: PreviewProvider {
+    
+    static var note1 = NoteModel(title: "Note 1", isCompleted: false)
+    static var note2 = NoteModel(title: "Note 2", isCompleted: true)
+
     static var previews: some View {
-        ListRowView(title: "First Item")
+        Group{
+            ListRowView(note: note1)
+            ListRowView(note: note2)
+        }.previewLayout(.sizeThatFits)
     }
 }

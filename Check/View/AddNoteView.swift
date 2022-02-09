@@ -17,16 +17,6 @@ struct AddNoteView: View {
     var body: some View {
         ScrollView{
             VStack{
-//                TextField("", text: $textFieldString)
-//                    .placeholder(when: textFieldString.isEmpty){
-//                        Text("Enter Note Here").foregroundColor(.white)
-//                    }
-//                    .padding(.top, -190)
-//                    .padding(.horizontal)
-//                    .frame(height: 400)
-//                    .background(Color(0x212423))
-//                    .cornerRadius(10)
-
                 TextEditor(text: $textFieldString)
                     .placeholder(when: textFieldString.isEmpty){
                         Text("Enter Note Here").foregroundColor(.white)
