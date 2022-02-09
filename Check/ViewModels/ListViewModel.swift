@@ -7,6 +7,9 @@
 
 import Foundation
 
+
+
+
 class ListViewModel: ObservableObject{
     @Published var notes: [NoteModel] = []
     
@@ -29,5 +32,20 @@ class ListViewModel: ObservableObject{
     
     func moveNote(from: IndexSet, to: Int){
         notes.move(fromOffsets: from, toOffset: to)
+    }
+    
+    func addNote(title: String){
+        let newNote = NoteModel(title: title, isCompleted: false)
+        
+        notes.append(newNote)
+    }
+    
+    func updateNote(note: NoteModel){
+        
+        
+        if let index = notes.firstIndex(where: { $0.id == note.id}){
+            notes[index] = note.updateCompletition()
+        }
+            
     }
 }

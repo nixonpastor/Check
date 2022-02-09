@@ -13,7 +13,16 @@ struct AddNoteView: View {
             UITextView.appearance().backgroundColor = .clear
         }
     
+    //To Navigate back to notes page
+    @Environment(\.presentationMode) var presentationMode
+    
+    @EnvironmentObject var listViewModel: ListViewModel
+    
     @State var textFieldString: String = ""
+    
+    @State var alertTitle: String = ""
+    @State var showAlert: Bool = false
+    
     var body: some View {
         ScrollView{
             VStack{
@@ -22,7 +31,7 @@ struct AddNoteView: View {
                         Text("Enter Note Here").foregroundColor(.white)
                             .opacity(0.6)
                             .padding(.bottom, 330)
-                            .padding(.horizontal, 10)
+                            .padding(.horizontal, 6)
                     }
                     .padding(.horizontal)
                     .padding()
@@ -33,8 +42,7 @@ struct AddNoteView: View {
                 
 
                 
-                Button(action: {
-                }, label: {
+                Button(action: saveButtonPressed, label: {
                     Text("Save".uppercased())
                         .frame(height: 55)
                         .font(.headline)
@@ -47,6 +55,29 @@ struct AddNoteView: View {
             .padding(16)
         }.padding(.top, 100)
         .navigationTitle("Add a Note")
+        .alert(isPresented: $showAlert, content: getAlert)
+    }
+    
+    //add note to listviewmodel
+    func saveButtonPressed(){
+        if isAppropriateText() {
+            listViewModel.addNote(title: textFieldString)
+            presentationMode.wrappedValue.dismiss()
+        }
+    }
+    
+    //check if 3 characters or more
+    func isAppropriateText() -> Bool {
+        if textFieldString.count < 3 {
+            alertTitle = "Note must be at least 3 characters long."
+            showAlert.toggle()
+            return false
+        }
+        return true
+    }
+    
+    func getAlert() -> Alert {
+        return Alert(title: Text(alertTitle))
     }
 }
 
@@ -54,7 +85,7 @@ struct AddNoteView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
         AddNoteView()
-        }
+        }.environmentObject(ListViewModel())
     }
 }
 

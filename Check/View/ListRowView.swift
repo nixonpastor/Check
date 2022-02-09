@@ -9,11 +9,18 @@ import SwiftUI
 
 struct ListRowView: View {
     
+    @EnvironmentObject var listViewModel: ListViewModel
     let note: NoteModel
     
     var body: some View {
         HStack{
-            Image(systemName: note.isCompleted ? "checkmark.circle" : "circle").foregroundColor(note.isCompleted ? .green : .red)
+            Image(systemName: note.isCompleted ? "checkmark.circle" : "circle")
+                .onTapGesture {
+                    withAnimation(.linear){
+                        listViewModel.updateNote(note: note)
+                    }
+                }
+                .foregroundColor(note.isCompleted ? .green : .red)
             Text(note.title)
             Spacer()
         }
