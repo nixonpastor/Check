@@ -4,7 +4,6 @@
 //
 //  Created by Nixon Pastor on 1/26/22.
 //
-//stopped at 10:45 
 
 import SwiftUI
 
