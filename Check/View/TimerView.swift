@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 struct TimerView: View {
     
@@ -56,9 +57,24 @@ struct TimerView: View {
                 
             }).edgesIgnoringSafeArea(.vertical)
             .padding(.top, -120)
+            .onAppear(perform: {
+                UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .sound, .alert]){_,_ in
+                    
+                }
+            })
     }
     
-    
+    func notify(){
+        let content = UNMutableNotificationContent()
+        content.title = "Check"
+        content.body = "Timer is completed."
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: "MSG", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+    }
     
     func countToMinutes() -> String {
            let currentTime = to - count
@@ -208,7 +224,9 @@ struct TimerView: View {
                         minutes = 0
                         hours = 0
                     }
+                    self.notify()
                     self.start.toggle()
+                    
                 }
                 
                
