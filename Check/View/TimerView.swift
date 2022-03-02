@@ -108,18 +108,14 @@ struct TimerView: View {
     func CustomTimerView() -> some View{
         ZStack{
             Circle()
+                .stroke(Color.white.opacity(0.09), lineWidth: 15)
+                .frame(width: 400, height: 400)
+
+                Circle()
                         .fill(Color.clear)
                         .frame(width: 400, height: 400)
                         .overlay(
-                            Circle().stroke(Color.white.opacity(0.09), lineWidth: 15)
-                            
-                    )
-            
-            Circle()
-                        .fill(Color.clear)
-                        .frame(width: 400, height: 400)
-                        .overlay(
-                            Circle().trim(from:0, to: countToProgress())
+                                Circle().trim(from:0, to: countToProgress())
                                 .stroke(
                                     style: StrokeStyle(
                                         lineWidth: 15,
@@ -129,11 +125,12 @@ struct TimerView: View {
                             )
                                 .rotationEffect(.init(degrees: -90))
                                 .foregroundColor(
-                                    (completed() ? Color.green : Color.orange)
-                            ).animation(
+                                    ( Color.orange)
+                                )
+                                .animation(
                                 .easeInOut(duration: 0.2)
-                            )
-                    )
+                                )
+                )
 
 
             VStack{
@@ -170,26 +167,48 @@ struct TimerView: View {
                 AnyView(
                     HStack {
                     Spacer()
-                                Picker("", selection: $hours){
-                                    ForEach(0..<24, id: \.self) { i in
-                                        Text("\(i) hours").tag(i).foregroundColor(.white)
-                                    }
-                                }.pickerStyle(WheelPickerStyle())
+                        Menu {
+                        Picker("", selection: $hours){
+                                    ForEach(0..<60, id: \.self) { i in
+                                        if(i==1){
+                                                    Text("\(i) hour").tag(i).foregroundColor(.white)
+                                            
+                                        }
+                                        else{
+                                                Text("\(i) hours").tag(i).foregroundColor(.white)
+                                            
+                                        }
+                                    }.foregroundColor(.white)
+                                }
                             .frame(width: 110).clipped().compositingGroup()
+                        } label:{
+                            Text("\(hours) Hr ").font(.largeTitle)
+                                .foregroundColor(Color.white)
+                        }
                     
-                                Picker("", selection: $minutes){
+                        Menu {
+                        Picker("", selection: $minutes){
                                     ForEach(0..<60, id: \.self) { i in
                                         Text("\(i) min").tag(i)
                                     }.foregroundColor(.white)
-                                }.pickerStyle(WheelPickerStyle())
+                                }
                             .frame(width: 110).clipped().compositingGroup()
-                    
-                                Picker("", selection: $seconds){
+                        } label:{
+                            Text("\(minutes) Min ").font(.largeTitle)
+                                .foregroundColor(Color.white)
+                        }
+                        
+                        Menu {
+                        Picker("", selection: $seconds){
                                     ForEach(0..<60, id: \.self) { i in
                                         Text("\(i) sec").tag(i)
                                     }.foregroundColor(.white)
-                                }.pickerStyle(WheelPickerStyle())
+                                }
                             .frame(width: 110).clipped().compositingGroup()
+                        } label:{
+                            Text("\(seconds) Sec ").font(.largeTitle)
+                                .foregroundColor(Color.white)
+                        }
                     Spacer()
             }.padding(.horizontal)
                     .padding(.top, -10)
@@ -326,7 +345,7 @@ struct TimerView: View {
                             )
                                 .rotationEffect(.init(degrees: -90))
                                 .foregroundColor(
-                                    (completed() ? Color.green : Color.orange)
+                                    (Color.orange)
                             ).animation(
                                 .easeInOut(duration: 0.2)
                             )
@@ -451,7 +470,7 @@ struct TimerView: View {
                             )
                                 .rotationEffect(.init(degrees: -90))
                                 .foregroundColor(
-                                    (completed() ? Color.green : Color.orange)
+                                    (Color.orange)
                             ).animation(
                                 .easeInOut(duration: 0.2)
                             )
@@ -572,7 +591,7 @@ struct TimerView: View {
                             )
                                 .rotationEffect(.init(degrees: -90))
                                 .foregroundColor(
-                                    (completed() ? Color.green : Color.orange)
+                                    (Color.orange)
                             ).animation(
                                 .easeInOut(duration: 0.2)
                             )
