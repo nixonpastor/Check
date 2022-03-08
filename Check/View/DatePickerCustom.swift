@@ -43,6 +43,7 @@ struct DatePickerCustom: View {
             } label: {
                 Image(systemName: "chevron.left")
                     .font(.title2)
+                    .foregroundColor(Color.green)
             }
                 
             Button{
@@ -52,6 +53,7 @@ struct DatePickerCustom: View {
                 } label: {
                     Image(systemName: "chevron.right")
                         .font(.title2)
+                        .foregroundColor(Color.green)
                 }
                 
                 NavigationLink("Add", destination: AddCalendarReminderView()).foregroundColor(Color.green)
