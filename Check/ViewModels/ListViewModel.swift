@@ -7,23 +7,28 @@
 
 import Foundation
 
-
-
-
 class ListViewModel: ObservableObject{
-    @Published var notes: [NoteModel] = []
+    @Published var notes: [NoteModel] = [] {
+        didSet{
+            saveItems()
+        }
+    }
+    
+    let notesKey: String = "notes_list"
     
     init(){
         getNotes()
     }
     
     func getNotes(){
-        let newNotes = [
-            NoteModel(title: "This is the first note", isCompleted: false),
-            NoteModel(title: "This is the second note", isCompleted: true),
-            NoteModel(title: "This is the third note", isCompleted: false)
-        ]
-        notes.append(contentsOf: newNotes)
+        guard
+            let data = UserDefaults.standard.data(forKey: notesKey),
+            let savedItems = try? JSONDecoder().decode([NoteModel].self, from: data)
+        else {
+            return
+        }
+        
+        self.notes = savedItems
     }
     
     func deleteNote(indexSet: IndexSet){
@@ -36,16 +41,18 @@ class ListViewModel: ObservableObject{
     
     func addNote(title: String){
         let newNote = NoteModel(title: title, isCompleted: false)
-        
         notes.append(newNote)
     }
     
     func updateNote(note: NoteModel){
-        
-        
         if let index = notes.firstIndex(where: { $0.id == note.id}){
             notes[index] = note.updateCompletition()
         }
-            
+    }
+    
+    func saveItems(){
+        if let encodedData = try? JSONEncoder().encode(notes){
+            UserDefaults.standard.set(encodedData, forKey: notesKey)
+        }
     }
 }

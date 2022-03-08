@@ -11,12 +11,14 @@ import SwiftUI
 struct CheckApp: App {
     
     @State var listViewModel: ListViewModel = ListViewModel()
+    @State var calendarViewModel: CalendarViewModel = CalendarViewModel()
     
     var body: some Scene {
         WindowGroup {
             NavigationView{
                 ContentView()
             }.environmentObject(listViewModel)
+                .environmentObject(calendarViewModel)
                 .padding(.top, -150)
         }
     }

@@ -29,7 +29,7 @@ struct ContentView: View {
 
     }
     
-    @State var selectedTab: Tabs = .notes
+    @State var selectedTab: Tabs = .calendar
     
     var body: some View {
         ZStack{
@@ -58,6 +58,7 @@ struct ContentView_Previews: PreviewProvider {
         NavigationView{
             ContentView()
         }.environmentObject(ListViewModel())
+            .environmentObject(CalendarViewModel())
     }
 }
 

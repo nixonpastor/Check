@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct DatePickerCustom: View {
+    
+    @EnvironmentObject var calendarViewModel: CalendarViewModel
     @Binding var currentDate: Date
     
     //Current Month based on arrow CTA
@@ -52,17 +54,7 @@ struct DatePickerCustom: View {
                         .font(.title2)
                 }
                 
-                Button{
-                    
-                } label:{
-                    Image(systemName: "plus")
-                        .font(.title)
-                        .foregroundColor(.green)
-                        .padding(5)
-                        .clipShape(Circle())
-                                    .shadow(radius: 10)
-                                    .overlay(Circle().stroke(Color.green, lineWidth: 2))
-                }
+                NavigationLink("Add", destination: AddCalendarReminderView()).foregroundColor(Color.green)
                 
             }.padding(.horizontal)
             
@@ -110,31 +102,33 @@ struct DatePickerCustom: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.vertical, 10)
                 
-                if let task = tasks.first(where: {
-                    task in
+                if let reminder = calendarViewModel.reminders.first(where: {
+                    reminder in
                     
-                    return isSameDay(date1: task.taskDate, date2: currentDate)
+                    return isSameDay(date1: reminder.reminderDate, date2: currentDate)
                 }){
-                    ForEach(task.task){
-                        task in
-                        VStack(alignment: .leading, spacing: 10){
-                            //display reminders
-                            //TBD CUSTOM TIME
-                            Text(task.time.addingTimeInterval(CGFloat.random(in: 0...5000)), style: .time)
-                                .foregroundColor(.white)
-                            Text(task.title)
-                                .font(.title2.bold())
-                                .foregroundColor(.white)
-                            
+                    
+                    ForEach(calendarViewModel.reminders){
+                    reminder in
+                        if(isSameDay(date1: reminder.reminderDate, date2: currentDate)){
+                            VStack(alignment: .leading, spacing: 10){
+                        //display reminders
+                        Text(reminder.time, style: .time)
+                            .foregroundColor(.white)
+                        Text(reminder.reminder)
+                            .font(.title2.bold())
+                            .foregroundColor(.white)
+                        
+                    }
+                            .padding(.vertical, 10)
+                            .padding(.horizontal)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .background(
+                                Color(UIColor.orange)
+                                    .opacity(0.9)
+                                    .cornerRadius(10)
+                            )
                         }
-                        .padding(.vertical, 10)
-                        .padding(.horizontal)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .background(
-                            Color(UIColor.orange)
-                                .opacity(0.9)
-                                .cornerRadius(10)
-                        )
                     }
                 }
                 else{
@@ -154,14 +148,14 @@ struct DatePickerCustom: View {
 
         VStack{
             if value.day != -1{
-                if let task = tasks.first(where: {
-                    task in
+                if let reminder = calendarViewModel.reminders.first(where: {
+                    reminder in
                     
-                    return isSameDay(date1: task.taskDate, date2: value.date)
+                    return isSameDay(date1: reminder.reminderDate, date2: value.date)
                 }){
                     Text("\(value.day)")
                     //change color based on selected dates
-                        .foregroundColor(isSameDay(date1: task.taskDate, date2: currentDate) ? .white : Color(UIColor.orange))
+                        .foregroundColor(isSameDay(date1: reminder.reminderDate, date2: currentDate) ? .white : Color(UIColor.orange))
                         .font(.title3.bold())
                         .frame(maxWidth: .infinity)
                     
@@ -169,7 +163,7 @@ struct DatePickerCustom: View {
                     Spacer()
                     
                     Circle()
-                        .fill(isSameDay(date1: task.taskDate, date2: currentDate) ? .white : Color(UIColor.orange))
+                        .fill(isSameDay(date1: reminder.reminderDate, date2: currentDate) ? .white : Color(UIColor.orange))
                         .frame(width: 8, height: 8)
                         
                 }
@@ -243,7 +237,7 @@ struct DatePickerCustom: View {
 
 struct DatePickerCustom_Previews: PreviewProvider {
     static var previews: some View {
-        CalendarView()
+        CalendarView().environmentObject(CalendarViewModel())
     }
 }
 

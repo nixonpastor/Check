@@ -20,7 +20,9 @@
 		9F7A0EC227A2650F00FFEB0B /* DateObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7A0EC127A2650F00FFEB0B /* DateObject.swift */; };
 		9F7A628227B362C2007684E6 /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7A628127B362C2007684E6 /* NoteModel.swift */; };
 		9F7A628527B36886007684E6 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7A628427B36886007684E6 /* ListViewModel.swift */; };
-		9F8A85E427A3A52E003BC67D /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8A85E327A3A52E003BC67D /* Task.swift */; };
+		9F9A7BF027D7243400F9C4A3 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9A7BEF27D7243400F9C4A3 /* CalendarViewModel.swift */; };
+		9F9A7BF227D7257700F9C4A3 /* ReminderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9A7BF127D7257700F9C4A3 /* ReminderModel.swift */; };
+		9F9A7BF427D7274800F9C4A3 /* AddCalendarReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9A7BF327D7274800F9C4A3 /* AddCalendarReminderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,7 +41,9 @@
 		9F7A0EC127A2650F00FFEB0B /* DateObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateObject.swift; sourceTree = "<group>"; };
 		9F7A628127B362C2007684E6 /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
 		9F7A628427B36886007684E6 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
-		9F8A85E327A3A52E003BC67D /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		9F9A7BEF27D7243400F9C4A3 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
+		9F9A7BF127D7257700F9C4A3 /* ReminderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderModel.swift; sourceTree = "<group>"; };
+		9F9A7BF327D7274800F9C4A3 /* AddCalendarReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCalendarReminderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,8 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				9F7A0EC127A2650F00FFEB0B /* DateObject.swift */,
-				9F8A85E327A3A52E003BC67D /* Task.swift */,
 				9F7A628127B362C2007684E6 /* NoteModel.swift */,
+				9F9A7BF127D7257700F9C4A3 /* ReminderModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -111,6 +115,7 @@
 				9F617DC4278796610033AFC0 /* NotesView.swift */,
 				9F4CCDEC27B0A91400314945 /* ListRowView.swift */,
 				9F4CCDEE27B0B32C00314945 /* AddNoteView.swift */,
+				9F9A7BF327D7274800F9C4A3 /* AddCalendarReminderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -119,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				9F7A628427B36886007684E6 /* ListViewModel.swift */,
+				9F9A7BEF27D7243400F9C4A3 /* CalendarViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -196,13 +202,15 @@
 				9F617DC7278796860033AFC0 /* TimerView.swift in Sources */,
 				9F617DB327878C280033AFC0 /* ContentView.swift in Sources */,
 				9F7A628527B36886007684E6 /* ListViewModel.swift in Sources */,
+				9F9A7BF027D7243400F9C4A3 /* CalendarViewModel.swift in Sources */,
 				9F7A0EBC27A2584B00FFEB0B /* DatePickerCustom.swift in Sources */,
+				9F9A7BF227D7257700F9C4A3 /* ReminderModel.swift in Sources */,
 				9F617DC5278796610033AFC0 /* NotesView.swift in Sources */,
 				9F4CCDEF27B0B32C00314945 /* AddNoteView.swift in Sources */,
 				9F7A0EC227A2650F00FFEB0B /* DateObject.swift in Sources */,
+				9F9A7BF427D7274800F9C4A3 /* AddCalendarReminderView.swift in Sources */,
 				9F617DC3278796350033AFC0 /* CalendarView.swift in Sources */,
 				9F7A628227B362C2007684E6 /* NoteModel.swift in Sources */,
-				9F8A85E427A3A52E003BC67D /* Task.swift in Sources */,
 				9F617DB127878C280033AFC0 /* CheckApp.swift in Sources */,
 				9F4CCDED27B0A91500314945 /* ListRowView.swift in Sources */,
 			);
