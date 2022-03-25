@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-@main
+ @main
 struct CheckApp: App {
     
     @State var listViewModel: ListViewModel = ListViewModel()

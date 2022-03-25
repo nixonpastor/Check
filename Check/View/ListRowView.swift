@@ -12,6 +12,8 @@ struct ListRowView: View {
     @EnvironmentObject var listViewModel: ListViewModel
     let note: NoteModel
     
+    
+    
     var body: some View {
         HStack{
             Image(systemName: note.isCompleted ? "checkmark.circle" : "circle")
@@ -21,11 +23,16 @@ struct ListRowView: View {
                     }
                 }
                 .foregroundColor(note.isCompleted ? .green : .red)
+            (note.title.count > 14) ?
+            Text(note.title.prefix(14) + " ...")
+            :
             Text(note.title)
+
             Spacer()
         }
         .font(.title2)
         .padding(.vertical, 8)
+        
     }
 }
 

@@ -23,16 +23,29 @@ struct NotesView: View {
                 }.padding(.top, 10 )
                     .padding(.bottom, -30)
                 //Looping through each note
-                List{
+                (listViewModel.notes.count != 0) ?
+                AnyView(
+                    List{
                     ForEach(listViewModel.notes ) {
                         item in
                         ListRowView(note: item)
                     }
                     .onDelete(perform: listViewModel.deleteNote)
                     .onMove(perform: listViewModel.moveNote)
-                }.padding(.top, 10)
+                }.padding(.top, 20)
+                        )
+                :
+                AnyView(
+                    VStack{
+                        Text("No Notes Added. Click the Add button to add.").foregroundColor(.white).padding(.top, 290)
+                            .padding(.bottom, 450)
+                            .font(.headline)
+
+                    }
+                )
+                        
             }).edgesIgnoringSafeArea(.vertical)
-            .padding(.top, 2)
+            .padding(.top, -10)
     }
 }
 
