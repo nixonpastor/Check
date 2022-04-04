@@ -10,15 +10,15 @@ import SwiftUI
 struct ListRowView: View {
     
     @EnvironmentObject var listViewModel: ListViewModel
-    @State var note: NoteModel
+    @ObservedObject var note: NoteModel
     
     var body: some View {
         HStack{
-            NavigationLink(destination: EditNoteView(currentNote: $note)){
+            NavigationLink(destination: EditNoteView(currentNote: _note)){
             Image(systemName: note.isCompleted ? "checkmark.circle" : "circle")
                 .onTapGesture {
                     withAnimation(.linear){
-                        listViewModel.updateNote(note: note)
+                        listViewModel.updateTrigger(note: note, completition: note.isCompleted)
                     }
                 }
                 .foregroundColor(note.isCompleted ? .green : .red)

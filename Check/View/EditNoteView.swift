@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EditNoteView: View {
-    init(currentNote: Binding<NoteModel> ) {
+    init(currentNote: ObservedObject<NoteModel> ) {
             UITextView.appearance().backgroundColor = .clear
           self._currentNote = currentNote
         }
@@ -23,7 +23,7 @@ struct EditNoteView: View {
     @State var alertTitle: String = ""
     @State var showAlert: Bool = false
     
-    @Binding var currentNote: NoteModel
+    @ObservedObject var currentNote: NoteModel
     
     var body: some View {
         ScrollView{

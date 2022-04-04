@@ -8,11 +8,11 @@
 import Foundation
 
 
-struct NoteModel: Identifiable, Codable{
+class NoteModel: ObservableObject, Identifiable, Codable{
     let id: String
 //    let title: String
     var title: String
-    let isCompleted: Bool
+    var isCompleted: Bool
     
     
     init(id: String = UUID().uuidString, title: String, isCompleted: Bool){
@@ -21,9 +21,6 @@ struct NoteModel: Identifiable, Codable{
         self.isCompleted = isCompleted
     }
     
-    func updateCompletition() -> NoteModel {
-        return NoteModel(id: id, title: title, isCompleted: !isCompleted)
-    }
     
 }
 

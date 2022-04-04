@@ -47,7 +47,13 @@ class ListViewModel: ObservableObject{
     
     func updateNote(note: NoteModel){
         if let index = notes.firstIndex(where: { $0.id == note.id}){
-            notes[index] = note.updateCompletition()
+            notes[index] = NoteModel(id: note.id, title: note.title, isCompleted: false)
+        }
+    }
+    
+    func updateTrigger(note: NoteModel, completition: Bool){
+        if let index = notes.firstIndex(where: { $0.id == note.id}){
+            notes[index] = NoteModel(id: note.id, title: note.title, isCompleted: !completition)
         }
     }
     
