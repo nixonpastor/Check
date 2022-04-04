@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9F4CCDED27B0A91500314945 /* ListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4CCDEC27B0A91400314945 /* ListRowView.swift */; };
 		9F4CCDEF27B0B32C00314945 /* AddNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4CCDEE27B0B32C00314945 /* AddNoteView.swift */; };
+		9F5C0A7927FAB67F003B5FBD /* EditNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5C0A7827FAB67F003B5FBD /* EditNoteView.swift */; };
 		9F617DB127878C280033AFC0 /* CheckApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F617DB027878C280033AFC0 /* CheckApp.swift */; };
 		9F617DB327878C280033AFC0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F617DB227878C280033AFC0 /* ContentView.swift */; };
 		9F617DB527878C290033AFC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F617DB427878C290033AFC0 /* Assets.xcassets */; };
@@ -29,6 +30,7 @@
 		9F062DE327C8B50700B4D33C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9F4CCDEC27B0A91400314945 /* ListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowView.swift; sourceTree = "<group>"; };
 		9F4CCDEE27B0B32C00314945 /* AddNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteView.swift; sourceTree = "<group>"; };
+		9F5C0A7827FAB67F003B5FBD /* EditNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNoteView.swift; sourceTree = "<group>"; };
 		9F617DAD27878C280033AFC0 /* Check.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Check.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F617DB027878C280033AFC0 /* CheckApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckApp.swift; sourceTree = "<group>"; };
 		9F617DB227878C280033AFC0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				9F4CCDEC27B0A91400314945 /* ListRowView.swift */,
 				9F4CCDEE27B0B32C00314945 /* AddNoteView.swift */,
 				9F9A7BF327D7274800F9C4A3 /* AddCalendarReminderView.swift */,
+				9F5C0A7827FAB67F003B5FBD /* EditNoteView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				9F617DC3278796350033AFC0 /* CalendarView.swift in Sources */,
 				9F7A628227B362C2007684E6 /* NoteModel.swift in Sources */,
 				9F617DB127878C280033AFC0 /* CheckApp.swift in Sources */,
+				9F5C0A7927FAB67F003B5FBD /* EditNoteView.swift in Sources */,
 				9F4CCDED27B0A91500314945 /* ListRowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

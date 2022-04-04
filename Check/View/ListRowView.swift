@@ -10,12 +10,11 @@ import SwiftUI
 struct ListRowView: View {
     
     @EnvironmentObject var listViewModel: ListViewModel
-    let note: NoteModel
-    
-    
+    @State var note: NoteModel
     
     var body: some View {
         HStack{
+            NavigationLink(destination: EditNoteView(currentNote: $note)){
             Image(systemName: note.isCompleted ? "checkmark.circle" : "circle")
                 .onTapGesture {
                     withAnimation(.linear){
@@ -29,6 +28,7 @@ struct ListRowView: View {
             Text(note.title)
 
             Spacer()
+            }
         }
         .font(.title2)
         .padding(.vertical, 8)
@@ -43,8 +43,8 @@ struct ListRowView_Previews: PreviewProvider {
 
     static var previews: some View {
         Group{
-            ListRowView(note: note1)
-            ListRowView(note: note2)
+//            ListRowView(note: note1)
+//            ListRowView(note: note2)
         }.previewLayout(.sizeThatFits)
     }
 }

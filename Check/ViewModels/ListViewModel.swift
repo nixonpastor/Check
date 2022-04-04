@@ -44,6 +44,7 @@ class ListViewModel: ObservableObject{
         notes.append(newNote)
     }
     
+    
     func updateNote(note: NoteModel){
         if let index = notes.firstIndex(where: { $0.id == note.id}){
             notes[index] = note.updateCompletition()

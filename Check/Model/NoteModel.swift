@@ -10,7 +10,8 @@ import Foundation
 
 struct NoteModel: Identifiable, Codable{
     let id: String
-    let title: String
+//    let title: String
+    var title: String
     let isCompleted: Bool
     
     

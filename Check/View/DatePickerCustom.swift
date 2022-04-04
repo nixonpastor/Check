@@ -110,18 +110,30 @@ struct DatePickerCustom: View {
                     return isSameDay(date1: reminder.reminderDate, date2: currentDate)
                 }){
                     
+                    
                     ForEach(calendarViewModel.reminders){
                     reminder in
                         if(isSameDay(date1: reminder.reminderDate, date2: currentDate)){
                             VStack(alignment: .leading, spacing: 10){
                         //display reminders
+                                HStack{
                         Text(reminder.time, style: .time)
                             .foregroundColor(.white)
+                                    Spacer()
+                                    Button(
+                                    action: {
+                                        calendarViewModel.deleteReminder(reminder: reminder)
+                                    }, label: {
+                                        Image(systemName: "trash")
+                                            .font(.title2)
+                                            .foregroundColor(Color.black)
+                                    }
+                                        )
+                                }
                         Text(reminder.reminder)
                             .font(.title2.bold())
                             .foregroundColor(.white)
-                        
-                    }
+                            }
                             .padding(.vertical, 10)
                             .padding(.horizontal)
                             .frame(maxWidth: .infinity, alignment: .leading)

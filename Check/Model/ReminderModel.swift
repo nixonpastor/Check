@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ReminderModel: Identifiable, Codable{
+struct ReminderModel: Identifiable, Codable, Equatable{
     let id: String
     let reminder: String
     let time: Date

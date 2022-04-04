@@ -36,6 +36,12 @@ class CalendarViewModel: ObservableObject{
         reminders.append(newReminder)
     }
     
+    func deleteReminder(reminder: ReminderModel){
+        if let index = reminders.index(where: {$0 == reminder}) {
+            reminders.remove(at: index)
+          }
+    }
+    
     func saveItems(){
         if let encodedData = try? JSONEncoder().encode(reminders){
             UserDefaults.standard.set(encodedData, forKey: remindersKey)
