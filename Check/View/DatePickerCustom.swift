@@ -120,6 +120,11 @@ struct DatePickerCustom: View {
                         Text(reminder.time, style: .time)
                             .foregroundColor(.white)
                                     Spacer()
+                                    NavigationLink(destination: EditCalendarReminderView(currentReminder: reminder), label: {
+                                        Image(systemName: "pencil")
+                                            .font(.title2)
+                                            .foregroundColor(Color.black)
+                                    })
                                     Button(
                                     action: {
                                         calendarViewModel.deleteReminder(reminder: reminder)

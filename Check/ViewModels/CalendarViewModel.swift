@@ -36,10 +36,15 @@ class CalendarViewModel: ObservableObject{
         reminders.append(newReminder)
     }
     
+    func updateReminder(reminder: ReminderModel){
+        if let index = reminders.firstIndex(where: { $0.id == reminder.id}){
+            reminders[index] = ReminderModel(id: reminder.id, reminder: reminder.reminder, time: reminder.time, reminderDate: reminder.reminderDate)
+        }
+    }
+    
     func deleteReminder(reminder: ReminderModel){
-        if let index = reminders.index(where: {$0 == reminder}) {
-            reminders.remove(at: index)
-          }
+        if let index = reminders.firstIndex(where: { $0.id == reminder.id}){
+            reminders.remove(at: index)        }
     }
     
     func saveItems(){

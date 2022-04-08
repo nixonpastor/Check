@@ -47,7 +47,7 @@ struct AddNoteView: View {
                         .frame(height: 55)
                         .font(.headline)
                         .frame(maxWidth: .infinity)
-                        .background(Color.accentColor)
+                        .background(Color.blue)
                         .foregroundColor(.white)
                         .cornerRadius(10)
                 })

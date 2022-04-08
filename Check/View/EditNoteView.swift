@@ -43,7 +43,7 @@ struct EditNoteView: View {
                         .frame(height: 55)
                         .font(.headline)
                         .frame(maxWidth: .infinity)
-                        .background(Color.accentColor)
+                        .background(Color.blue)
                         .foregroundColor(.white)
                         .cornerRadius(10)
                 })
@@ -57,7 +57,6 @@ struct EditNoteView: View {
     //add note to listviewmodel
     func saveButtonPressed(){
         if isAppropriateText() {
-//            listViewModel.addNote(title: textFieldString)
             listViewModel.updateNote(note: currentNote)
             presentationMode.wrappedValue.dismiss()
         }

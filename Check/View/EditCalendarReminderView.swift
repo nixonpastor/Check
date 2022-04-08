@@ -1,4 +1,11 @@
 //
+//  EditCalendarReminderView.swift
+//  Check
+//
+//  Created by Nixon Pastor on 4/8/22.
+//
+
+//
 //  AddCalendarReminderView.swift
 //  Check
 //
@@ -7,16 +14,15 @@
 
 import SwiftUI
 
-struct AddCalendarReminderView: View {
-    init() {
-            UITextView.appearance().backgroundColor = .clear
-        }
+struct EditCalendarReminderView: View {
+    
     
     //To Navigate back to notes page
     @Environment(\.presentationMode) var presentationMode
     
     @EnvironmentObject var calendarViewModel: CalendarViewModel
-    
+    @ObservedObject var currentReminder: ReminderModel
+
     @State var textFieldString: String = ""
     @State var date: Date = Date()
     @State var time: Date = Date()
@@ -27,13 +33,7 @@ struct AddCalendarReminderView: View {
     var body: some View {
         ScrollView{
             VStack{
-                TextEditor(text: $textFieldString)
-                    .placeholder(when: textFieldString.isEmpty){
-                        Text("Enter Reminder Here").foregroundColor(.white)
-                            .opacity(0.6)
-                            .padding(.bottom, 30)
-                            .padding(.horizontal, 6)
-                    }
+                TextEditor(text: $currentReminder.reminder)
                     .padding(.horizontal)
                     .padding()
                     .frame(height: 100)
@@ -42,15 +42,15 @@ struct AddCalendarReminderView: View {
                     .cornerRadius(10)
                 
                 
-                DatePicker("Please enter a date", selection: $date, in: Date.now..., displayedComponents: .date)
-                      .id(date)
+                DatePicker("Please enter a date", selection: $currentReminder.reminderDate, in: Date.now..., displayedComponents: .date)
+                    .id(date)
                     .padding()
                 
-                DatePicker("Please enter a time", selection: $time, in: Date.now..., displayedComponents: .hourAndMinute)
+                DatePicker("Please enter a time", selection: $currentReminder.time, in: Date.now..., displayedComponents: .hourAndMinute)
                     .padding()
                 
-                Button(action: saveButtonPressed, label: {
-                    Text("Save".uppercased())
+                Button(action: saveEditButtonPressed, label: {
+                    Text("Save Edit".uppercased())
                         .frame(height: 55)
                         .font(.headline)
                         .frame(maxWidth: .infinity)
@@ -64,22 +64,22 @@ struct AddCalendarReminderView: View {
             
             
         }.padding(.top, 100)
-        .navigationTitle("Add a Reminder")
+        .navigationTitle("Edit Reminder")
         .alert(isPresented: $showAlert, content: getAlert)
     }
     
     //add note to calendarViewModel
-    func saveButtonPressed(){
+    func saveEditButtonPressed(){
         if isAppropriateText() {
-            calendarViewModel.addReminder(reminder: textFieldString, time: time, reminderDate: date)
-            print(calendarViewModel.reminders)
+            calendarViewModel.updateReminder(reminder: currentReminder)
+            print("testing save edit reminder button")
             presentationMode.wrappedValue.dismiss()
         }
     }
     
     //check if 3 characters or more
     func isAppropriateText() -> Bool {
-        if textFieldString.count < 3 {
+        if currentReminder.reminder.count < 3 {
             alertTitle = "Note must be at least 3 characters long."
             showAlert.toggle()
             return false
@@ -92,13 +92,14 @@ struct AddCalendarReminderView: View {
     }
 }
 
-struct AddCalendarReminderView_Previews: PreviewProvider {
+struct EditCalendarView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
-        AddNoteView()
+//        AddNoteView()
         }.environmentObject(CalendarViewModel())
     }
 }
+
 
 
 
